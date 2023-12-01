@@ -24,6 +24,5 @@ app.use("/", (request, response) => {
     response.send("Test");
 });
 app.use("/scores", scoreRoutes_1.default);
-app.listen(5555, () => console.log("Port 5555"));
 exports.default = app;
 //# sourceMappingURL=index.js.map
