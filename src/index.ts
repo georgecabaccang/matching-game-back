@@ -1,6 +1,6 @@
 require("dotenv").config();
 
-import express from "express";
+import express, { Request, Response } from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import scoreRoutes from "./routes/scoreRoutes";
@@ -21,9 +21,13 @@ app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
 app.use(cors({ origin: process.env.CORS_ORIGIN }));
 
-app.use("/", (request, response) => {
+app.get("/", (request: Request, response: Response) => {
     response.send("Test");
 });
 app.use("/scores", scoreRoutes);
+
+app.listen("8080", () => {
+    return console.log(`Server is listening on 8080`);
+});
 
 export default app;
