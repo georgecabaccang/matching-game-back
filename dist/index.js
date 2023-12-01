@@ -17,9 +17,9 @@ database.on("error", (error) => {
 });
 database.once("open", () => console.log("Connected to DB."));
 // -----------------------------------------------------------------
+app.use((0, cors_1.default)({ origin: "https://matching-game-lovat.vercel.app/" }));
 app.use(express_1.default.json({ limit: "50mb" }));
 app.use(express_1.default.urlencoded({ limit: "50mb", extended: true }));
-app.use((0, cors_1.default)({ origin: process.env.CORS_ORIGIN }));
 app.get("/", (request, response) => {
     response.send("Test");
 });
