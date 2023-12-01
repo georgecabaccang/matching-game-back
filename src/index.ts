@@ -26,6 +26,4 @@ app.use("/", (request, response) => {
 });
 app.use("/scores", scoreRoutes);
 
-app.listen(5555, () => console.log("Port 5555"));
-
 export default app;
