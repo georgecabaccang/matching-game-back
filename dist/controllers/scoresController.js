@@ -13,6 +13,9 @@ const addScore = async (request, response) => {
             case "colors":
                 mode = scoreModel_js_1.ScoreColorsMode;
                 break;
+            case "images":
+                mode = scoreModel_js_1.ScoreImagesMode;
+                break;
         }
         const newScore = new mode({
             name: scoreDetails.name,
@@ -42,6 +45,9 @@ const getScores = async (request, response) => {
             case "colors":
                 mode = scoreModel_js_1.ScoreColorsMode;
                 break;
+            case "images":
+                mode = scoreModel_js_1.ScoreImagesMode;
+                break;
         }
         const scores = await mode.find({ size: scoreDetails.size }).sort({ time: "asc" }).limit(10);
         return response.send(scores);
@@ -64,6 +70,9 @@ const deleteScore = async (request, response) => {
                 break;
             case "colors":
                 mode = scoreModel_js_1.ScoreColorsMode;
+                break;
+            case "images":
+                mode = scoreModel_js_1.ScoreImagesMode;
                 break;
         }
         const reponse = await mode.findByIdAndDelete(scoreDetails.scoreId);

@@ -1,5 +1,10 @@
 import { Request, Response } from "express";
-import { IScoreSchema, ScoreColorsMode, ScoreNumbersMode } from "../models/scoreModel.js";
+import {
+    IScoreSchema,
+    ScoreColorsMode,
+    ScoreImagesMode,
+    ScoreNumbersMode,
+} from "../models/scoreModel.js";
 import { Model } from "mongoose";
 
 export const addScore = async (request: Request, response: Response) => {
@@ -12,6 +17,9 @@ export const addScore = async (request: Request, response: Response) => {
                 break;
             case "colors":
                 mode = ScoreColorsMode;
+                break;
+            case "images":
+                mode = ScoreImagesMode;
                 break;
         }
 
@@ -43,6 +51,9 @@ export const getScores = async (request: Request, response: Response) => {
             case "colors":
                 mode = ScoreColorsMode;
                 break;
+            case "images":
+                mode = ScoreImagesMode;
+                break;
         }
 
         const scores = await mode.find({ size: scoreDetails.size }).sort({ time: "asc" }).limit(10);
@@ -66,6 +77,9 @@ export const deleteScore = async (request: Request, response: Response) => {
                 break;
             case "colors":
                 mode = ScoreColorsMode;
+                break;
+            case "images":
+                mode = ScoreImagesMode;
                 break;
         }
 

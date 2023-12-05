@@ -19,3 +19,4 @@ const ScoreSchema = new Schema<IScoreSchema>(
 
 export const ScoreNumbersMode = model<IScoreSchema>("ScoreNumbersMode", ScoreSchema);
 export const ScoreColorsMode = model<IScoreSchema>("ScoreColorsMode", ScoreSchema);
+export const ScoreImagesMode = model<IScoreSchema>("ScoreImagesMode", ScoreSchema);
